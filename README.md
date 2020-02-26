@@ -1,5 +1,6 @@
 # Table-Extraction-and-Chinese-OCR
-Extract the outline of the table from the paper form obtained from the photo or the electronic document and recognize the text content in the outline. 从拍照得到的纸质表格或者是电子表格中检测出表格轮廓并提取出这些轮廓，对每个轮廓内的内容进行识别。
+Extract the outline of the table from the paper form obtained from the photo or the electronic document and recognize the text content in the outline. 从拍照得到的纸质表格或者是电子表格中检测出表格轮廓并提取出这些轮廓，对每个轮廓内的内容进行识别。  
+过滤掉表格外的表头等文字信息，只关注于表格轮廓内的内容。
 
 # 数据准备
 创建data/img和data/test目录  

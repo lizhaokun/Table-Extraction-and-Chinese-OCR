@@ -28,7 +28,8 @@ python demo.py在data/temp目录下会生成裁剪下来的每一个小框的内
 # 可视化视图
 ![](./images/2.jpg)  
 ![](./images/1.jpg)
-![](./images/3.png)
+![](./images/3.png)  
+最终的检测结果我没有放，因为某种原因结果找不到了，我也懒得再测一遍了，但是只要能得到正确的裁剪的结果，识别的结果应该是好的，darknet-ocr这样的高star项目还是值得相信的。
 
 # 参考
 darknet-ocr:https://github.com/chineseocr/darknet-ocr

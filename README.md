@@ -5,10 +5,10 @@ Extract the outline of the table from the paper form obtained from the photo or 
 # 数据准备
 创建data/img和data/test和data/temp目录  
 
-1.如果表格比较大，文字较小，需要进行以下操作：
-  1）将要识别的图片数据放入data/img/目录下。
-  2）根据要识别的表格内容，更改jiequ.py文件中第20行，更改需要在原图上截取的范围。
-  3）运行jiequ.py
+1.如果表格比较大，文字较小，需要进行以下操作：  
+  1）将要识别的图片数据放入data/img/目录下。  
+  2）根据要识别的表格内容，更改jiequ.py文件中第20行，更改需要在原图上截取的范围。  
+  3）运行jiequ.py  
 2.如果表格较小，文字较大，易识别，直接将图片放入到data/test/目录下即可
 
 # 模型文件（参考models目录）

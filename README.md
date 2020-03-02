@@ -3,7 +3,7 @@ Extract the outline of the table from the paper form obtained from the photo or 
 过滤掉表格外的表头等文字信息，只关注于表格轮廓内的内容。
 
 # 数据准备
-创建data/img和data/test目录  
+创建data/img和data/test和data/temp目录  
 
 1.如果表格比较大，文字较小，需要进行以下操作：
   1）将要识别的图片数据放入data/img/目录下。
@@ -21,7 +21,9 @@ Extract the outline of the table from the paper form obtained from the photo or 
 编译对CPU的支持:cd darknet && cp  Makefile-cpu Makefile && make
 
 # 运行
-python demo.py
+python demo.py在data/temp目录下会生成裁剪下来的每一个小框的内容，然后再运行app.py(参考darknet-ocr的使用方法)就可以对每一个小格的内容进行识别了。  
+为了使提取的内容较易识别，我注释掉了formatcut的第110行，如果希望可视化在图片上的表格框的标注，请取消掉该行的注释。  
+如果希望一步到位，直接可以识别出每个小表格内的内容，那么请取消掉formatcut.py中6，7，125，126行的注释，这样就会对图片中的每一个识别出来的小框的内容进行识别（但这一步操作一定要注释掉第110行），不用一个一个的用app.py去识别了。 执行python demo.py。   
 
 # 参考
 darknet-ocr:https://github.com/chineseocr/darknet-ocr

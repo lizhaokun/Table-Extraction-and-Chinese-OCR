@@ -1,9 +1,10 @@
+# -*- coding: UTF-8 -*-
 # import argparse
 import numpy as np
 import cv2
 from matplotlib import pyplot as plt
-from dnn.main import text_ocr
-from config import scale_d,maxScale,TEXT_LINE_SCORE
+# from dnn.main import text_ocr
+# from config import scale_d,maxScale,TEXT_LINE_SCORE
 
 def find_Table_Contours(src_img):
     src_img0 = cv2.cvtColor(src_img, cv2.COLOR_BGR2GRAY)
@@ -35,10 +36,10 @@ def Get_Roi_Area(src_img,mask, filename):
     height, width, = src_img.shape[:2]
     image_copy = src_img.copy()
     roi_mask = mask
-    # plt.imshow(image_copy)
-    # plt.show()
-    # plt.imshow(roi_mask)
-    # plt.show()
+    #plt.imshow(image_copy)
+    #plt.show()
+    #plt.imshow(roi_mask)
+    #plt.show()
     _, cnts_canny, _ = cv2.findContours(roi_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     if len(cnts_canny) > 0:
         kuang = []
@@ -62,10 +63,10 @@ def Get_Roi_Area(src_img,mask, filename):
         temp_mask[(temp_mask.shape[0] - 5): (temp_mask.shape[0] - 2), :] = 255
         # cv2.imwrite('temp/cut_' + filename + '.jpg', temp_Img)
         # cv2.imwrite('temp/cut_mask_' + filename + '.jpg', temp_mask)
-        # plt.imshow(temp_Img)
-        # plt.show()
-        # plt.imshow(temp_mask)
-        # plt.show()
+        #plt.imshow(temp_Img)
+        #plt.show()
+        #plt.imshow(temp_mask)
+        #plt.show()
 
         rows, cols = temp_mask.shape
         scale = 40
@@ -105,23 +106,24 @@ def Get_Roi_Area(src_img,mask, filename):
             roi, bitwiseAnd_contours, joints_hierarchy = cv2.findContours(roi, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
             print (len(bitwiseAnd_contours))
             # if h < 80 and h > 20 and w > 10 and len(joints_contours)<=4:
-            if h < 100 and h > 20 and w > 10 and len(bitwiseAnd_contours) <= 4:  # important
-                cv2.rectangle(temp_Img, (x, y), (x + w, y + h), (255 - h * 3, h * 3, 0), 3)
-                # plt.imshow(temp_Img)
-                # plt.show()
+            if h < 100 and h > 20 and w > 10 and len(bitwiseAnd_contours) <= 6:  # important
+                # cv2.rectangle(temp_Img, (x, y), (x + w, y + h), (255 - h * 3, h * 3, 0), 2)
                 small_rects.append(rect)
-            print(len(small_rects))
+            #print(len(small_rects))
         plt.imshow(temp_Img)
         plt.show()
 
+        num = 0
         for j in small_rects:
             x_j, y_j, w_j, h_j = j
             cut_region = temp_Img_copy[y_j: y_j + h_j, x_j: x_j + w_j, :]
             cut_region_data = cv2.cvtColor(cut_region, cv2.COLOR_RGB2BGR)
             plt.imshow(cut_region_data)
             plt.show()
-            data = text_ocr(cut_region_data, scale_d, maxScale, TEXT_LINE_SCORE)
-            print(data)
+            cv2.imwrite('data/temp/cut_' + str(num) + '.jpg', cut_region_data)
+            num += 1
+            # data = text_ocr(cut_region_data, scale_d, maxScale, TEXT_LINE_SCORE)
+            # print(data)
 
         # cut_regions = sorted(small_rects, key=lambda s : s[3], reverse=True)
         # for i in cut_regions:

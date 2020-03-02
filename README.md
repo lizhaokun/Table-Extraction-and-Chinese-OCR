@@ -26,8 +26,8 @@ python demo.py在data/temp目录下会生成裁剪下来的每一个小框的内
 如果希望一步到位，直接可以识别出每个小表格内的内容，那么请取消掉formatcut.py中6，7，125，126行的注释，这样就会对图片中的每一个识别出来的小框的内容进行识别（但这一步操作一定要注释掉第110行），不用一个一个的用app.py去识别了。 执行python demo.py。 
 
 # 可视化视图
-![](./images/1.jpg)  
-![](./images/2.jpg)
+![](./images/2.jpg)  
+![](./images/1.jpg)
 ![](./images/3.png)
 
 # 参考

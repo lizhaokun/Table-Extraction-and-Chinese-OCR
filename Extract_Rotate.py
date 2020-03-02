@@ -1,8 +1,9 @@
+# -*- coding: UTF-8 -*-
 import cv2
 import math
 import numpy as np
 from collections import defaultdict
-from matplotlib import pyplot as plt
+#from matplotlib import pyplot as plt
 
 
 def __Duplicate_elements__(array,axis=0):
@@ -127,9 +128,9 @@ def nothing(poss):
 def Rotation_Correct(image,MinLineLength=100,MaxLineGap=20):
     # image = cv2.imread(image)
     # try:
-    #     image = gamma_transform(image)
+    #    image = gamma_transform(image)
     # except:
-    #     pass
+    #    pass
     rows, cols, = image.shape[:2]
     image_copy = image.copy()
     gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
@@ -147,8 +148,8 @@ def Rotation_Correct(image,MinLineLength=100,MaxLineGap=20):
     #     if cv2.waitKey(1) & 0xFF == ord('q'):
     #         break
     # cv2.destroyAllWindows()
-    # plt.imshow(edges)
-    # plt.show()
+    #plt.imshow(edges)
+    #plt.show()
     # cv2.namedWindow('edged', 2)
     # cv2.imshow('edged', edges)
     # cv2.waitKey(0)
@@ -180,9 +181,9 @@ def Rotation_Correct(image,MinLineLength=100,MaxLineGap=20):
         print('rotateAngle:', Rotation_Angle)
 
     # 判断是否需要仿射变换
-    # if LineShu_Angle[0][6]<1.50:
-    #     print('LineShu[0]:', LineShu_Angle[0][6])
-    #     image_copy = Affine_Correct(image_copy,LineSetShu,LineSet)
+    if LineShu_Angle[0][6]<1.50:
+        print('LineShu[0]:', LineShu_Angle[0][6])
+        image_copy = Affine_Correct(image_copy,LineSetShu,LineSet)
     return image_copy
 
 

@@ -4,5 +4,5 @@ pillow
 h5py
 requests
 web.py==0.40.dev0
-opencv-python==3.4.3.18
+opencv-python==3.4.7.28
 matplotlib
